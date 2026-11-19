@@ -1,0 +1,75 @@
+@model ProductCreateViewModel
+@{
+    ViewData["Title"] = "Жаңа тауар қосу";
+}
+
+<h2>Жаңа тауар қосу</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create" method="post">
+
+            @* Барлық қателерді (өріс + модель деңгейіндегі) жинақтап көрсетеді *@
+            <div asp-validation-summary="All" class="alert alert-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Sku" class="form-label"></label>
+                    <input asp-for="Sku" class="form-control" placeholder="LAP-1234" />
+                    <span asp-validation-for="Sku" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Category" class="form-label"></label>
+                    <select asp-for="Category" asp-items="Model.Categories" class="form-select">
+                        <option value="">-- санатты таңдаңыз --</option>
+                    </select>
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Price" class="form-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="DiscountPrice" class="form-label"></label>
+                    <input asp-for="DiscountPrice" class="form-control" />
+                    <span asp-validation-for="DiscountPrice" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Stock" class="form-label"></label>
+                    <input asp-for="Stock" class="form-control" />
+                    <span asp-validation-for="Stock" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SupplierEmail" class="form-label"></label>
+                <input asp-for="SupplierEmail" class="form-control" />
+                <span asp-validation-for="SupplierEmail" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Сақтау</button>
+            <a class="btn btn-outline-secondary" asp-action="Index">Болдырмау</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

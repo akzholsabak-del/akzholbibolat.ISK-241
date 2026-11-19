@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Басты бет";
+}
+
+<div class="p-4 mb-4 bg-light rounded-3">
+    <h1 class="display-6">4-апта: ViewModels және Валидация</h1>
+    <p class="lead mb-0">
+        Domain Model мен ViewModel айырмашылығы, Data Annotations, ModelState және
+        client/server валидациясы бір жобада көрсетілген.
+    </p>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Тауарлар тізімі</h5>
+                <p class="card-text">Domain Model → ViewModel түрлендіруі (Product → ProductListItemViewModel).</p>
+                <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Index">Ашу</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Жаңа тауар қосу</h5>
+                <p class="card-text">[Required], [StringLength], [Range], [EmailAddress], [RegularExpression], IValidatableObject.</p>
+                <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Create">Ашу</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Пайдаланушыны тіркеу</h5>
+                <p class="card-text">[Compare], өздік [MinimumAge] (client + server), ModelState.AddModelError.</p>
+                <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Register">Ашу</a>
+            </div>
+        </div>
+    </div>
+</div>

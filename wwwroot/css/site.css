@@ -1,0 +1,5 @@
+/* ASP.NET Core валидация кластарын Bootstrap-пен үйлестіру */
+.field-validation-error { font-size: 0.875rem; }
+.input-validation-error { border-color: #dc3545 !important; }
+.validation-summary-valid { display: none; }
+.validation-summary-errors ul { margin-bottom: 0; }

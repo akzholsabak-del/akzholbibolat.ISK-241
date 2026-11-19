@@ -1,0 +1,42 @@
+@model IEnumerable<ProductListItemViewModel>
+@{
+    ViewData["Title"] = "Тауарлар";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Тауарлар тізімі</h2>
+    <a class="btn btn-primary" asp-action="Create">+ Жаңа тауар</a>
+</div>
+
+@if (TempData["Success"] is string message)
+{
+    <div class="alert alert-success">@message</div>
+}
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Атауы</th>
+            <th>Артикул</th>
+            <th>Санат</th>
+            <th class="text-end">Бағасы (₸)</th>
+            <th class="text-end">Жеңілдік (₸)</th>
+            <th class="text-end">Саны</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td><code>@item.Sku</code></td>
+            <td>@item.Category</td>
+            <td class="text-end">@item.Price.ToString("N0")</td>
+            <td class="text-end">@(item.DiscountPrice?.ToString("N0") ?? "—")</td>
+            <td class="text-end">@item.Stock</td>
+        </tr>
+    }
+    </tbody>
+</table>
